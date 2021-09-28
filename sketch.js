@@ -21,11 +21,11 @@ function setup() {
 
 	ground = new Ground(700, 690, width, 5);
 	roofObject = new roof(670, 200, 350, 20)
-	bobObject1 = new bob(550, 500, 60);
-	bobObject2 = new bob(610, 500, 60);
-	bobObject3 = new bob(670, 500, 60);
-	bobObject4 = new bob(730, 500, 60);
-	bobObject5 = new bob(780, 500, 60);
+	bobObject1 = new bob(525, 500, 60);
+	bobObject2 = new bob(590, 500, 60);
+	bobObject3 = new bob(655, 500, 60);
+	bobObject4 = new bob(720, 500, 60);
+	bobObject5 = new bob(785, 500, 60);
 	rope1 = new rope(roofObject.body, bobObject1.body, 90, 0);
 	World.add(world, rope1);
 	rope2 = new rope(roofObject.body, bobObject2.body, 90, 0);
