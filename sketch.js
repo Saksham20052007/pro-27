@@ -25,7 +25,7 @@ function setup() {
 	bobObject2 = new bob(585, 500, 50);
 	bobObject3 = new bob(655, 500, 50);
 	bobObject4 = new bob(725, 500, 50);
-	bobObject5 = new bob(795, 500, 50);
+	bobObject5 = new bob(800, 500, 50);
 	rope1 = new rope(roofObject.body, bobObject1.body, 90, 0);
 	World.add(world, rope1);
 	rope2 = new rope(roofObject.body, bobObject2.body, 90, 0);
