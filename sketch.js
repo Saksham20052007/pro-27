@@ -3,79 +3,69 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-const Constraint=Matter.Constraint;
+const Constraint = Matter.Constraint;
 var roofObject, bobObject1, bobObject2, bobObject3, bobObject4, bobObject5, rope1, rope2, rope3, rope4, rope5;
-var ground;
 
-function preload()
-{
-	
+function preload() {
+
 }
 
 function setup() {
-	createCanvas(1400, 700);
+	createCanvas(800, 600);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-	ground = new Ground(700, 690, width, 5);
-	roofObject = new roof(670, 200, 350, 20)
-	bobObject1 = new bob(510, 500, 60);
-	bobObject2 = new bob(570, 500, 60);
-	bobObject3 = new bob(630, 500, 60);
-	bobObject4 = new bob(700, 500, 60);
-	bobObject5 = new bob(770, 500, 60);
-	rope1 = new rope(roofObject.body, bobObject1.body, 90, 0);
+	// ground = new Ground(700, 690, width, 5);
+	roofObject = new roof(400, 250, 230, 20)
+	bobObject1 = new bob(320, 575, 40);
+	bobObject2 = new bob(360, 575, 40);
+	bobObject3 = new bob(400, 575, 40);
+	bobObject4 = new bob(440, 575, 40);
+	bobObject5 = new bob(480, 575, 40);
+	rope1 = new rope(bobObject1.body, roofObject.body, -80, 0);
 	World.add(world, rope1);
-	rope2 = new rope(roofObject.body, bobObject2.body, 90, 0);
+	rope2 = new rope(bobObject2.body, roofObject.body, -40, 0);
 	World.add(world, rope2)
-	rope3 = new rope(roofObject.body, bobObject3.body, 90, 0);
+	rope3 = new rope(bobObject3.body, roofObject.body, 0, 0);
 	World.add(world, rope3);
-	rope4 = new rope(roofObject.body, bobObject4.body, 90, 0);
+	rope4 = new rope(bobObject4.body, roofObject.body, 40, 0);
 	World.add(world, rope4);
-	rope5 = new rope(roofObject.body, bobObject5.body, 90, 0);
+	rope5 = new rope(bobObject5.body, roofObject.body, 80, 0);
 	World.add(world, rope5);
 
 	//Create the Bodies Here.
 
-	
-
 
 	Engine.run(engine);
-  
+
 }
 
 
 function draw() {
-  rectMode(CENTER);
-  background(255);
-  text(mouseX+", "+mouseY, mouseX, mouseY)
-
-  
-  drawSprites();
-
-  roofObject.display();
-  bobObject1.display(); 
-  bobObject2.display();
-  bobObject3.display();
-  bobObject4.display();
-  bobObject5.display();
-  strokeWeight(3);
-  line(bobObject1.body.position.x, bobObject1.body.position.y, 550, roofObject.body.position.y)
-  line(bobObject2.body.position.x, bobObject2.body.position.y, 610, roofObject.body.position.y)
-  line(bobObject3.body.position.x, bobObject3.body.position.y, 670, roofObject.body.position.y)
-  line(bobObject4.body.position.x, bobObject4.body.position.y, 730, roofObject.body.position.y)
-  line(bobObject5.body.position.x, bobObject5.body.position.y, 780, roofObject.body.position.y)
-
-
-
-}
-function keyPressed(){
-	if(keyCode===32){
-		console.log("the function");
-		Matter.Body.applyForce(bobObject5.body, bobObject5.body.position, {x:150, y:8});
+	background(255);
+	text(mouseX + ", " + mouseY, mouseX, mouseY)
+	if (keyDown("space")) {
+		Matter.Body.applyForce(bobObject1.body, bobObject1.body.position, { x: -20, y: -2 });
 	}
+
+
+	roofObject.display();
+	bobObject1.display();
+	bobObject2.display();
+	bobObject3.display();
+	bobObject4.display();
+	bobObject5.display();
+	rope1.display();
+	rope2.display();
+	rope3.display();
+	rope4.display();
+	rope5.display();
+
+	drawSprites();
+
+
 }
 
 
